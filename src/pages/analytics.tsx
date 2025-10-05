@@ -1,4 +1,3 @@
-"use client"
 
 import {StatCard} from "@/components/common/stat-card"
 import {Card} from "@/components/ui/card"

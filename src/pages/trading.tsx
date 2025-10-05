@@ -1,4 +1,3 @@
-"use client"
 
 import {OpenOrders} from "@/components/trading/open-orders"
 import {OrderBook} from "@/components/trading/order-book"

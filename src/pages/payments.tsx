@@ -1,4 +1,3 @@
-"use client"
 import {PaymentHistory} from "@/components/payments/payment-history"
 import {ReceivePayment} from "@/components/payments/receive-payment"
 import {SendPayment} from "@/components/payments/send-payment"

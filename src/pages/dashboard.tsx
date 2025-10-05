@@ -1,5 +1,3 @@
-"use client"
-
 import {StatCard} from "@/components/common/stat-card"
 import {Badge} from "@/components/ui/badge"
 import {Button} from "@/components/ui/button"

@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -12,3 +13,4 @@ const nextConfig = {
 }
 
 export default nextConfig
+
