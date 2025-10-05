@@ -1,8 +1,6 @@
-"use client"
+// Remove "use client" from the top
 
-import { useWallet } from "@aptos-labs/wallet-adapter-react"
-import { Wallet, LogOut } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import {Button} from "@/components/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,14 +9,16 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { formatAddress, formatUSD } from "@/lib/utils"
-import { useWalletStore } from "@/store/wallet-store"
-import { useEffect } from "react"
-import { useWalletBalance } from "@/hooks/use-wallet-balance"
-import { usePrivateBalance } from "@/hooks/use-private-balance"
+import {usePrivateBalance} from "@/hooks/use-private-balance"
+import {useWalletBalance} from "@/hooks/use-wallet-balance"
+import {formatAddress, formatUSD} from "@/lib/utils"
+import {useWalletStore} from "@/store/wallet-store"
+import {useWallet} from "@aptos-labs/wallet-adapter-react"
+import {LogOut, Wallet} from "lucide-react"
+import {useEffect} from "react"
 
 export function WalletButton() {
-  const { account, connected, connect, disconnect } = useWallet()
+  const { account, connected, connect, disconnect, wallets } = useWallet()
   const { address, balance, setAddress, setConnected, reset } = useWalletStore()
 
   useWalletBalance()
@@ -35,7 +35,13 @@ export function WalletButton() {
 
   const handleConnect = async () => {
     try {
-      await connect("Petra" as any)
+      // Find Petra wallet from available wallets
+      const petraWallet = wallets?.find(w => w.name === "Petra")
+      if (petraWallet) {
+        await connect(petraWallet.name)
+      } else {
+        console.error("Petra wallet not found. Please install Petra wallet extension.")
+      }
     } catch (error) {
       console.error("Failed to connect wallet:", error)
     }

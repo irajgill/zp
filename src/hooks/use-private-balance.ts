@@ -14,14 +14,19 @@ export function usePrivateBalance() {
 
       try {
         const response = await fetch(`${BACKEND_URL}/api/vault/balance/${account.address}`)
-        if (!response.ok) throw new Error("Failed to fetch private balance")
+        if (!response.ok) {
+          console.warn("Backend not available, using mock private balance")
+          const mockBalance = "1.5000"
+          setPrivateBalance(mockBalance)
+          return mockBalance
+        }
 
         const data = await response.json()
         const balance = data.balance || "0"
         setPrivateBalance(balance)
         return balance
       } catch (error) {
-        console.error("Failed to fetch private balance:", error)
+        console.warn("Failed to fetch private balance:", error)
         // Return mock data for demo
         const mockBalance = "1.5000"
         setPrivateBalance(mockBalance)
@@ -30,5 +35,6 @@ export function usePrivateBalance() {
     },
     enabled: connected && !!account?.address,
     refetchInterval: 15000,
+    retry: false,
   })
 }

@@ -1,4 +1,3 @@
-"use client"
 
 import { Aptos, AptosConfig, type Network } from "@aptos-labs/ts-sdk"
 import { useMemo } from "react"

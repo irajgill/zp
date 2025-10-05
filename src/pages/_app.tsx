@@ -6,6 +6,10 @@ import {useState} from "react"
 import {Toaster} from "sonner"
 import "../styles/globals.css"
 
+// ADD THESE IMPORTS
+import {Network} from "@aptos-labs/ts-sdk"
+import {AptosWalletAdapterProvider} from "@aptos-labs/wallet-adapter-react"
+import {PetraWallet} from "petra-plugin-wallet-adapter"
 
 export default function App({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => new QueryClient({
@@ -17,12 +21,26 @@ export default function App({ Component, pageProps }: AppProps) {
     },
   }))
 
+  // Configure wallets
+  const wallets = [new PetraWallet()]
+
   return (
-    <QueryClientProvider client={queryClient}>
-      <Layout>
-        <Component {...pageProps} />
-        <Toaster />
-      </Layout>
-    </QueryClientProvider>
+    <AptosWalletAdapterProvider
+      plugins={wallets}
+      autoConnect={true}
+      dappConfig={{
+        network: Network.TESTNET,
+      }}
+      onError={(error) => {
+        console.error("Wallet adapter error:", error)
+      }}
+    >
+      <QueryClientProvider client={queryClient}>
+        <Layout>
+          <Component {...pageProps} />
+          <Toaster />
+        </Layout>
+      </QueryClientProvider>
+    </AptosWalletAdapterProvider>
   )
 }
