@@ -1,15 +1,15 @@
 "use client"
 
-import { useState } from "react"
-import { Card } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Progress } from "@/components/ui/progress"
-import { ShieldCheck, CheckCircle2, XCircle, Clock, FileCheck, AlertCircle } from "lucide-react"
-import { formatTimestamp } from "@/lib/utils"
-import { toast } from "sonner"
+import {Badge} from "@/components/ui/badge"
+import {Button} from "@/components/ui/button"
+import {Card} from "@/components/ui/card"
+import {Progress} from "@/components/ui/progress"
+import {formatTimestamp} from "@/lib/utils"
+import {AlertCircle, CheckCircle2, Clock, FileCheck, ShieldCheck, XCircle} from "lucide-react"
+import {useState} from "react"
+import {toast} from "sonner"
 
-export function Compliance() {
+export default function Compliance() {
   const [generating, setGenerating] = useState(false)
 
   const complianceScore = {

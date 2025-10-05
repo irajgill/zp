@@ -1,10 +1,10 @@
 "use client"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { SendPayment } from "@/components/payments/send-payment"
-import { ReceivePayment } from "@/components/payments/receive-payment"
-import { PaymentHistory } from "@/components/payments/payment-history"
+import {PaymentHistory} from "@/components/payments/payment-history"
+import {ReceivePayment} from "@/components/payments/receive-payment"
+import {SendPayment} from "@/components/payments/send-payment"
+import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs"
 
-export function Payments() {
+export default function Payments() {
   return (
     <div className="space-y-6">
       <div>

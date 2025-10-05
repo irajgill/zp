@@ -1,25 +1,25 @@
 "use client"
 
-import { Card } from "@/components/ui/card"
-import { StatCard } from "@/components/common/stat-card"
-import { Users, Shield, Activity, Globe, Lock } from "lucide-react"
+import {StatCard} from "@/components/common/stat-card"
+import {Card} from "@/components/ui/card"
+import {Activity, Globe, Lock, Shield, Users} from "lucide-react"
 import {
-  BarChart,
   Bar,
-  LineChart,
-  Line,
-  PieChart,
-  Pie,
+  BarChart,
+  CartesianGrid,
   Cell,
+  Legend,
+  Line,
+  LineChart,
+  Pie,
+  PieChart,
+  ResponsiveContainer,
+  Tooltip,
   XAxis,
   YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  Legend,
 } from "recharts"
 
-export function Analytics() {
+export default function Analytics() {
   // Mock privacy metrics
   const privacyMetrics = {
     anonymitySetSize: 1247,

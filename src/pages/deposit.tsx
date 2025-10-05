@@ -1,19 +1,19 @@
 "use client"
 
-import { useState } from "react"
-import { Card } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Alert, AlertDescription } from "@/components/ui/alert"
-import { ArrowDown, ArrowUp, Shield, AlertCircle } from "lucide-react"
-import { useWalletStore } from "@/store/wallet-store"
-import { formatAmount, generateCommitment } from "@/lib/utils"
-import { toast } from "sonner"
+import {Alert, AlertDescription} from "@/components/ui/alert"
+import {Button} from "@/components/ui/button"
+import {Card} from "@/components/ui/card"
+import {Input} from "@/components/ui/input"
+import {Label} from "@/components/ui/label"
+import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select"
+import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs"
+import {formatAmount, generateCommitment} from "@/lib/utils"
+import {useWalletStore} from "@/store/wallet-store"
+import {AlertCircle, ArrowDown, ArrowUp, Shield} from "lucide-react"
+import {useState} from "react"
+import {toast} from "sonner"
 
-export function Deposit() {
+export default function Deposit() {
   const { balance, privateBalance } = useWalletStore()
   const [depositAmount, setDepositAmount] = useState("")
   const [withdrawAmount, setWithdrawAmount] = useState("")

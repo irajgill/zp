@@ -1,12 +1,12 @@
 "use client"
 
-import { Card } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Plus, Lock, CheckCircle2, AlertCircle } from "lucide-react"
-import { formatTimestamp } from "@/lib/utils"
+import {Badge} from "@/components/ui/badge"
+import {Button} from "@/components/ui/button"
+import {Card} from "@/components/ui/card"
+import {formatTimestamp} from "@/lib/utils"
+import {AlertCircle, CheckCircle2, Lock, Plus} from "lucide-react"
 
-export function Escrow() {
+export default function Escrow() {
   const escrows = [
     {
       id: "1",

@@ -1,0 +1,28 @@
+"use client"
+
+import {Layout} from "@/components/layout/layout"
+import {QueryClient, QueryClientProvider} from "@tanstack/react-query"
+import type {AppProps} from "next/app"
+import {useState} from "react"
+import {Toaster} from "sonner"
+import "../styles/globals.css"
+
+export default function App({ Component, pageProps }: AppProps) {
+  const [queryClient] = useState(() => new QueryClient({
+    defaultOptions: {
+      queries: {
+        staleTime: 60 * 1000,
+        refetchOnWindowFocus: false,
+      },
+    },
+  }))
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Layout>
+        <Component {...pageProps} />
+        <Toaster />
+      </Layout>
+    </QueryClientProvider>
+  )
+}

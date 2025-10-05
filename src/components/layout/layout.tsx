@@ -1,10 +1,7 @@
-"use client"
-
 import type React from "react"
-
-import { useState } from "react"
-import { Header } from "./header"
-import { Sidebar } from "./sidebar"
+import {useState} from "react"
+import {Header} from "./header"
+import {Sidebar} from "./sidebar"
 
 interface LayoutProps {
   children: React.ReactNode

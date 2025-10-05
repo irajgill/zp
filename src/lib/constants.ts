@@ -1,8 +1,8 @@
 export const CONTRACT_ADDRESS =
-  import.meta.env.VITE_CONTRACT_ADDRESS || "0xd5f63b6f126ec4cc12948f0a5b6418d146776353c646fa0fa573f7b6b39af2cb"
-export const APTOS_NETWORK = import.meta.env.VITE_APTOS_NETWORK || "testnet"
-export const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:3001"
-export const APTOS_NODE_URL = import.meta.env.VITE_APTOS_NODE_URL || "https://fullnode.testnet.aptoslabs.com/v1"
+  process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || "0xd5f63b6f126ec4cc12948f0a5b6418d146776353c646fa0fa573f7b6b39af2cb"
+export const APTOS_NETWORK = process.env.NEXT_PUBLIC_APTOS_NETWORK || "testnet"
+export const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:3001"
+export const APTOS_NODE_URL = process.env.NEXT_PUBLIC_APTOS_NODE_URL || "https://fullnode.testnet.aptoslabs.com/v1"
 
 export const SUPPORTED_COINS = ["APT", "USDC", "USDT"] as const
 export const PRIVACY_LEVELS = ["standard", "enhanced", "maximum"] as const

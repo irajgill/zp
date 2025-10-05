@@ -1,15 +1,15 @@
 "use client"
 
-import { Card } from "@/components/ui/card"
-import { Label } from "@/components/ui/label"
-import { Switch } from "@/components/ui/switch"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Button } from "@/components/ui/button"
-import { Shield, Bell, Wallet, Globe } from "lucide-react"
-import { toast } from "sonner"
-import { useState } from "react"
+import {Button} from "@/components/ui/button"
+import {Card} from "@/components/ui/card"
+import {Label} from "@/components/ui/label"
+import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select"
+import {Switch} from "@/components/ui/switch"
+import {Bell, Globe, Shield, Wallet} from "lucide-react"
+import {useState} from "react"
+import {toast} from "sonner"
 
-export function Settings() {
+export default function Settings() {
   const [privacyLevel, setPrivacyLevel] = useState("enhanced")
   const [autoMixing, setAutoMixing] = useState(true)
   const [notifications, setNotifications] = useState(true)

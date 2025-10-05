@@ -1,17 +1,17 @@
 "use client"
 
-import { useState } from "react"
-import { Card } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { OrderBook } from "@/components/trading/order-book"
-import { TradingChart } from "@/components/trading/trading-chart"
-import { OrderForm } from "@/components/trading/order-form"
-import { OpenOrders } from "@/components/trading/open-orders"
-import { TradeHistory } from "@/components/trading/trade-history"
-import { Badge } from "@/components/ui/badge"
-import { TrendingUp, TrendingDown } from "lucide-react"
+import {OpenOrders} from "@/components/trading/open-orders"
+import {OrderBook} from "@/components/trading/order-book"
+import {OrderForm} from "@/components/trading/order-form"
+import {TradeHistory} from "@/components/trading/trade-history"
+import {TradingChart} from "@/components/trading/trading-chart"
+import {Badge} from "@/components/ui/badge"
+import {Card} from "@/components/ui/card"
+import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs"
+import {TrendingDown, TrendingUp} from "lucide-react"
+import {useState} from "react"
 
-export function Trading() {
+export default function Trading() {
   const [selectedPair, setSelectedPair] = useState("APT/USDC")
 
   // Mock market data

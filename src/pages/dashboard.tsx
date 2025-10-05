@@ -1,18 +1,19 @@
 "use client"
 
-import { Wallet, Eye, EyeOff, ShieldCheck, ArrowUpRight, Send, Plus, FileCheck } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import { StatCard } from "@/components/common/stat-card"
-import { useWalletStore } from "@/store/wallet-store"
-import { useAppStore } from "@/store/app-store"
-import { formatAmount, formatUSD, formatTimestamp } from "@/lib/utils"
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
-import { Badge } from "@/components/ui/badge"
+import {StatCard} from "@/components/common/stat-card"
+import {Badge} from "@/components/ui/badge"
+import {Button} from "@/components/ui/button"
+import {Card} from "@/components/ui/card"
+import {formatAmount, formatTimestamp, formatUSD} from "@/lib/utils"
+import {useAppStore} from "@/store/app-store"
+import {useWalletStore} from "@/store/wallet-store"
+import {ArrowUpRight, Eye, EyeOff, FileCheck, Plus, Send, ShieldCheck, Wallet} from "lucide-react"
+import {useRouter} from "next/router"
+import {useState} from "react"
 
-export function Dashboard() {
-  const navigate = useNavigate()
+
+export default function Dashboard() {
+  const router = useRouter()
   const { balance, privateBalance, connected } = useWalletStore()
   const { privacyMode, togglePrivacyMode, transactions } = useAppStore()
   const [showPrivateBalance, setShowPrivateBalance] = useState(false)
@@ -152,21 +153,21 @@ export function Dashboard() {
         <h2 className="text-xl font-semibold text-white">Quick Actions</h2>
         <div className="mt-4 grid gap-4 md:grid-cols-3">
           <Button
-            onClick={() => navigate("/payments")}
+            onClick={() => router.push("/payments")}
             className="h-auto flex-col gap-2 bg-gradient-to-br from-purple-500/20 to-blue-500/20 py-6 hover:from-purple-500/30 hover:to-blue-500/30"
           >
             <Send className="h-6 w-6" />
             <span>New Private Payment</span>
           </Button>
           <Button
-            onClick={() => navigate("/deposit")}
+            onClick={() => router.push("/deposit")}
             className="h-auto flex-col gap-2 bg-gradient-to-br from-purple-500/20 to-blue-500/20 py-6 hover:from-purple-500/30 hover:to-blue-500/30"
           >
             <Plus className="h-6 w-6" />
             <span>Deposit Funds</span>
           </Button>
           <Button
-            onClick={() => navigate("/compliance")}
+            onClick={() => router.push("/compliance")}
             className="h-auto flex-col gap-2 bg-gradient-to-br from-purple-500/20 to-blue-500/20 py-6 hover:from-purple-500/30 hover:to-blue-500/30"
           >
             <ShieldCheck className="h-6 w-6" />
